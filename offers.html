@@ -1,0 +1,473 @@
+<!doctype html> 
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Taste Haven - Offers</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fafafa;
+      color: #333;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #ffbf00 !important;
+    }
+
+    /* Dropdown items */
+    .dropdown-menu .dropdown-item {
+      transition: color 0.3s ease, background 0.3s ease;
+    }
+
+    .dropdown-menu .dropdown-item:hover {
+      color: #ffbf00;
+      background: #f8f9fa;
+    }
+
+    /* Footer list item hover */
+    footer ul li {
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    footer ul li:hover a {
+      color: #ffbf00 !important;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('assets/offers-background.jfif') no-repeat center center/cover;
+      min-height: 35vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      font-weight: 700;
+      transition: color 0.3s ease;
+    }
+
+    .hero h1:hover {
+      color: #ffbf00;
+    }
+
+    .intro-text {
+      max-width: 750px;
+      margin: 30px auto 50px;
+      text-align: center;
+      font-size: clamp(1rem, 2.5vw, 1.1rem);
+      color: #555;
+    }
+
+    .btn-contact {
+      background-color: #ff9800;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 10px 25px;
+      font-weight: 500;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    .btn-contact:hover {
+      background-color: #e68900;
+      color: white;
+    }
+
+    .card {
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+      height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 18px;
+    }
+
+    /* Card title hover */
+    .card-title {
+      font-weight: 600;
+      transition: color 0.3s ease;
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+    }
+
+    .card-title:hover {
+      color: #ffbf00;
+    }
+    .section-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .section-buttons a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #FFBF00;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 8px;
+      padding: 10px 18px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .section-buttons a:hover {
+      background-color: #e6ac00;
+      color: #fff;
+    }
+
+    .section-buttons i {
+      font-size: 1.2rem;
+    }
+
+    /* Modern Navbar */
+    .modern-navbar {
+      background: rgba(34, 34, 34, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 0.8rem 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .modern-navbar .navbar-brand span {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+
+    .modern-navbar .navbar-brand span:hover {
+      color: #FFBF00;
+    }
+
+    .modern-navbar .nav-link {
+      color: #fff;
+      font-weight: 500;
+      margin: 0 0.4rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .modern-navbar .nav-link::after {
+      content: '';
+      display: block;
+      width: 0%;
+      height: 2px;
+      background: #FFBF00;
+      transition: width 0.3s ease;
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+    }
+
+    .modern-navbar .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .modern-navbar .nav-link.active {
+      color: #FFBF00;
+    }
+
+    .modern-navbar .dropdown-menu {
+      border-radius: 10px;
+      border: none;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .modern-navbar .dropdown-item:hover {
+      background: #FFBF00;
+      color: #fff !important;
+    }
+
+    /* Hamburger icon tweaks */
+    .navbar-toggler {
+      border: none;
+    }
+
+    .navbar-toggler-icon {
+      filter: invert(1);
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 576px) {
+      .hero {
+        min-height: 50vh;
+        padding: 2rem 1rem;
+      }
+
+      .intro-text {
+        font-size: 1rem;
+        padding: 0 1rem;
+      }
+
+      .navbar-nav {
+        text-align: center;
+      }
+
+      footer .row {
+        text-align: center;
+      }
+    }
+.footer-modern {
+  background: #111;
+  color: white;
+}
+
+.footer-modern h5 {
+  color: white;
+}
+
+.footer-modern a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-modern a:hover {
+  color: #ff9800;
+}
+
+.footer-modern ul {
+  padding: 0;
+}
+
+.footer-modern .list-inline-item {
+  margin: 0 8px;
+}
+
+.footer-modern img {
+  filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.4));
+}
+
+.footer-modern .social-icons a {
+  font-size: 1.5rem;
+  margin: 0 10px;
+  color: white;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-modern .social-icons a:hover {
+  color: #ff9800;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 576px) {
+  footer {
+    font-size: 0.8rem;
+  }
+}
+
+
+    @media (min-width: 1400px) {
+      .container {
+        max-width: 1320px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg modern-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="assets/taste-haven-logo.png" alt="Taste Haven Logo" width="50" height="40" class="img-fluid">
+        <span class="ms-2">Taste Haven</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#modernNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="modernNavbar">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="reservation.html">Reservations</a></li>
+          <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">Offers</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">More</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="blog.html">Blog</a></li>
+              <li><a class="dropdown-item" href="faqs.html">FAQ's</a></li>
+              <li><a class="dropdown-item" href="privacy.html">Privacy</a></li>
+              <li><a class="dropdown-item" href="careers.html">Careers</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div>
+      <h1>Special Offers & Events</h1>
+      <p class="lead">Exciting deals crafted for every food lover</p>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <div class="container">
+    <p class="intro-text">
+      At Taste Haven, we believe great food should come with great value.
+      From exclusive weekly events to seasonal specials, our offers are designed to bring joy to your table.
+      Explore our current promotions and don’t miss out!
+    </p>
+    <!-- Contact Buttons -->
+    <div class="text-center my-4">
+      <a href="https://wa.me/923272007787" target="_blank" class="btn btn-contact me-2">
+        WhatsApp Us
+      </a>
+      <a href="tel:+923272007787" class="btn btn-contact">
+        Call Us
+      </a>
+    </div>
+  </div>
+
+  <!-- Offers Section -->
+  <div class="container py-4">
+    <div class="row g-4">
+      <!-- Card 1 -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card">
+          <img src="assets/happy-hour.jpeg" class="card-img-top" alt="Happy Hour">
+          <div class="card-body">
+            <h5 class="card-title">Happy Hour</h5>
+            <p class="card-text">50% off drinks every Friday from 5–7 PM. Bring your friends and make it a night to remember!</p>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card">
+          <img src="assets/family-feast.webp" class="card-img-top" alt="Family Feast">
+          <div class="card-body">
+            <h5 class="card-title">Family Feast</h5>
+            <p class="card-text">Enjoy a hearty meal with your loved ones. Groups of 4+ get special discounts on Sundays.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card">
+          <img src="assets/live-music-night.avif" class="card-img-top" alt="Live Music">
+          <div class="card-body">
+            <h5 class="card-title">Live Music Night</h5>
+            <p class="card-text">Dine with rhythm every Saturday night. Experience soulful live performances with your meal.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card">
+          <img src="assets/lunch-combo.jpeg" class="card-img-top" alt="Lunch Combo">
+          <div class="card-body">
+            <h5 class="card-title">Lunch Combo</h5>
+            <p class="card-text">Weekday delight! Grab a burger, fries, and drink combo for just $6.99 from 12–3 PM.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Card 5 -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card">
+          <img src="assets/vegan-mondays.jfif" class="card-img-top" alt="Vegan Special">
+          <div class="card-body">
+            <h5 class="card-title">Vegan Mondays</h5>
+            <p class="card-text">Healthy, delicious, and plant-based! Get 20% off all vegan dishes every Monday.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Card 6 -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card">
+          <img src="assets/chef-surprise.jpg" class="card-img-top" alt="Chef’s Surprise">
+          <div class="card-body">
+            <h5 class="card-title">Chef’s Surprise</h5>
+            <p class="card-text">Every Wednesday, our chef curates a surprise dish. Limited servings – come early!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+<footer class="footer-modern py-5">
+  <div class="container text-center">
+    <!-- Logo -->
+    <div class="mb-3">
+      <img src="assets/taste-haven-logo.png" alt="Taste Haven Logo" width="60" height="60" class="img-fluid mb-2">
+      <h5 class="fw-bold mt-2">Taste Haven</h5>
+    </div>
+
+    <!-- Links -->
+    <ul class="list-inline mb-3">
+      <li class="list-inline-item"><a href="index.html">Home</a></li>
+      <li class="list-inline-item"><a href="index.html#about">About</a></li>
+      <li class="list-inline-item"><a href="menu.html">Menu</a></li>
+      <li class="list-inline-item"><a href="gallery.html">Gallery</a></li>
+      <li class="list-inline-item"><a href="reservation.html">Reservations</a></li>
+      <li class="list-inline-item"><a href="reviews.html">Reviews</a></li>
+      <li class="list-inline-item"><a href="#">Offers</a></li>
+      <li class="list-inline-item"><a href="blog.html">Blog</a></li>
+      <li class="list-inline-item"><a href="faqs.html">FAQ's</a></li>
+      <li class="list-inline-item"><a href="privacy.html">Privacy</a></li> 
+      <li class="list-inline-item"><a href="careers.html">Careers</a></li>
+      <li class="list-inline-item"><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <!-- Contact -->
+    <p class="mb-1">📍 North Nazimabad Karachi</p>
+    <p class="mb-1">📞 <a href="tel:+923272007787">+92 327 2007787</a></p>
+    <p class="mb-3">✉️ <a href="mailto:info@tastehaven.com">info@tastehaven.com</a></p>
+
+    <!-- Social Media -->
+    <div class="social-icons mb-3">
+      <a href="https://facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
+      <a href="https://wa.me/923272007787?text=Hello%20Taste%20Haven" target="_blank"><i class="bi bi-whatsapp"></i></a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="small copyright-text">
+      &copy; 2025 Taste Haven Restaurant | All Rights Reserved
+    </div>
+  </div>
+</footer>
+
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

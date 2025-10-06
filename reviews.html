@@ -1,0 +1,379 @@
+<!doctype html> 
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Taste Haven - Reviews</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f8f9fa;
+      color: #333;
+    }
+
+    /* Navbar brand */
+    .navbar-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .navbar-brand img {
+      display: inline-block;
+    }
+    .navbar-brand span {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+    .navbar-brand span:hover {
+      color: #ffbf00 !important;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #ffbf00 !important;
+    }
+
+    /* Dropdown items */
+    .dropdown-menu .dropdown-item {
+      transition: color 0.3s ease, background 0.3s ease;
+    }
+    .dropdown-menu .dropdown-item:hover {
+      color: #ffbf00;
+      background: #f8f9fa;
+    }
+
+    /* Headings */
+    h2 {
+      font-weight: 700;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+    h2:hover {
+      color: #ffbf00;
+    }
+
+    /* Section buttons */
+    .section-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .section-buttons a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #FFBF00;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 8px;
+      padding: 10px 18px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+    .section-buttons a:hover {
+      background-color: #e6ac00;
+      color: #fff;
+    }
+    .section-buttons i {
+      font-size: 1.2rem;
+    }
+
+    /* Intro text */
+    .intro-text {
+      max-width: 700px;
+      margin: 0 auto 40px;
+      text-align: center;
+      color: #555;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      transition: color 0.3s ease;
+    }
+    .intro-text:hover {
+      color: #333;
+    }
+
+    /* Review cards */
+    .review-card {
+      background: #fff;
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+      height: 100%;
+    }
+    .review-card:hover {
+      transform: translateY(-8px);
+    }
+    .review-img {
+      height: 200px;
+      object-fit: cover;
+      width: 100%;
+    }
+    .review-content {
+      padding: 20px;
+    }
+    .stars {
+      color: #ffbf00;
+      margin-bottom: 10px;
+    }
+    h6 {
+      margin-top: 15px;
+      font-weight: 600;
+      color: #555;
+      transition: color 0.3s ease;
+    }
+    h6:hover {
+      color: #ffbf00;
+    }
+
+    /* Modern Navbar */
+    .modern-navbar {
+      background: rgba(34, 34, 34, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 0.8rem 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .modern-navbar .navbar-brand span {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+    .modern-navbar .navbar-brand span:hover {
+      color: #FFBF00;
+    }
+    .modern-navbar .nav-link {
+      color: #fff;
+      font-weight: 500;
+      margin: 0 0.4rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    .modern-navbar .nav-link::after {
+      content: '';
+      display: block;
+      width: 0%;
+      height: 2px;
+      background: #FFBF00;
+      transition: width 0.3s ease;
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+    }
+    .modern-navbar .nav-link:hover::after {
+      width: 100%;
+    }
+    .modern-navbar .nav-link.active {
+      color: #FFBF00;
+    }
+    .modern-navbar .dropdown-menu {
+      border-radius: 10px;
+      border: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .modern-navbar .dropdown-item:hover {
+      background: #FFBF00;
+      color: #fff !important;
+    }
+    .navbar-toggler {
+      border: none;
+    }
+    .navbar-toggler-icon {
+      filter: invert(1);
+    }
+
+    
+    .footer-modern {
+  background: #111;
+  color: white;
+}
+
+.footer-modern h5 {
+  color: white;
+}
+
+.footer-modern a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-modern a:hover {
+  color: #ff9800;
+}
+
+.footer-modern ul {
+  padding: 0;
+}
+
+.footer-modern .list-inline-item {
+  margin: 0 8px;
+}
+
+.footer-modern img {
+  filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.4));
+}
+
+.footer-modern .social-icons a {
+  font-size: 1.5rem;
+  margin: 0 10px;
+  color: white;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-modern .social-icons a:hover {
+  color: #ff9800;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 576px) {
+  footer {
+    font-size: 0.8rem;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg modern-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="assets/taste-haven-logo.png" alt="Taste Haven Logo" width="50" height="40" class="img-fluid">
+        <span>Taste Haven</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#modernNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="modernNavbar">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="reservation.html">Reservations</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">Reviews</a></li>
+          <li class="nav-item"><a class="nav-link" href="offers.html">Offers</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">More</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="blog.html">Blog</a></li>
+              <li><a class="dropdown-item" href="faqs.html">FAQ's</a></li>
+              <li><a class="dropdown-item" href="privacy.html">Privacy</a></li>
+              <li><a class="dropdown-item" href="careers.html">Careers</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Reviews Section -->
+  <div class="container py-5">
+    <h2 class="text-center mb-4">What Our Customers Say</h2>
+    <p class="intro-text">
+      At <strong>Taste Haven</strong>, we believe the best compliments come from our guests.  
+      From family dinners to romantic evenings, our visitors have shared their wonderful experiences with us.  
+      Here’s what some of them had to say about their time at our restaurant.
+    </p>
+
+    <div class="row g-4">
+      <!-- Review 1 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="review-card h-100">
+          <img src="assets/review-card-1.jpg" class="review-img img-fluid" alt="Customer">
+          <div class="review-content">
+            <p>"Absolutely delicious food! The pasta was to die for."</p>
+            <h6>- Zain K.</h6>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 2 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="review-card h-100">
+          <img src="assets/review-card-2.jpg" class="review-img img-fluid" alt="Customer">
+          <div class="review-content">
+            <p>"Great atmosphere and friendly staff. Highly recommended."</p>
+            <h6>- M Ali.</h6>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 3 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="review-card h-100">
+          <img src="assets/review-card-3.jpg" class="review-img img-fluid" alt="Customer">
+          <div class="review-content">
+            <p>"The best pizza in town! Will definitely come back."</p>
+            <h6>- Safa M.</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+<footer class="footer-modern py-5">
+  <div class="container text-center">
+    <!-- Logo -->
+    <div class="mb-3">
+      <img src="assets/taste-haven-logo.png" alt="Taste Haven Logo" width="60" height="60" class="img-fluid mb-2">
+      <h5 class="fw-bold mt-2">Taste Haven</h5>
+    </div>
+
+    <!-- Links -->
+    <ul class="list-inline mb-3">
+      <li class="list-inline-item"><a href="index.html">Home</a></li>
+      <li class="list-inline-item"><a href="index.html#about">About</a></li>
+      <li class="list-inline-item"><a href="menu.html">Menu</a></li>
+      <li class="list-inline-item"><a href="gallery.html">Gallery</a></li>
+      <li class="list-inline-item"><a href="reservation.html">Reservations</a></li>
+      <li class="list-inline-item"><a href="#">Reviews</a></li>
+      <li class="list-inline-item"><a href="offers.html">Offers</a></li>
+      <li class="list-inline-item"><a href="blog.html">Blog</a></li>
+      <li class="list-inline-item"><a href="faqs.html">FAQ's</a></li>
+      <li class="list-inline-item"><a href="privacy.html">Privacy</a></li> 
+      <li class="list-inline-item"><a href="careers.html">Careers</a></li>
+      <li class="list-inline-item"><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <!-- Contact -->
+    <p class="mb-1">📍 North Nazimabad Karachi</p>
+    <p class="mb-1">📞 <a href="tel:+923272007787">+92 327 2007787</a></p>
+    <p class="mb-3">✉️ <a href="mailto:info@tastehaven.com">info@tastehaven.com</a></p>
+
+    <!-- Social Media -->
+    <div class="social-icons mb-3">
+      <a href="https://facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
+      <a href="https://wa.me/923272007787?text=Hello%20Taste%20Haven" target="_blank"><i class="bi bi-whatsapp"></i></a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="small copyright-text">
+      &copy; 2025 Taste Haven Restaurant | All Rights Reserved
+    </div>
+  </div>
+</footer>
+
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ - Taste Haven</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- AOS Animation CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+    :root {
+      --amber: #ff9800;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fafafa;
+      color: #333;
+    }
+
+    /* Modern Navbar */
+    .modern-navbar {
+      background: rgba(34, 34, 34, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 0.8rem 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .modern-navbar .navbar-brand span {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+
+    .modern-navbar .navbar-brand span:hover {
+      color: #FFBF00;
+    }
+
+    .modern-navbar .nav-link {
+      color: #fff;
+      font-weight: 500;
+      margin: 0 0.4rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .modern-navbar .nav-link::after {
+      content: '';
+      display: block;
+      width: 0%;
+      height: 2px;
+      background: #FFBF00;
+      transition: width 0.3s ease;
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+    }
+
+    .modern-navbar .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .modern-navbar .nav-link.active {
+      color: #FFBF00;
+    }
+
+    .modern-navbar .dropdown-menu {
+      border-radius: 10px;
+      border: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .modern-navbar .dropdown-item:hover {
+      background: #FFBF00;
+      color: #fff !important;
+    }
+
+    .navbar-toggler {
+      border: none;
+    }
+
+    .navbar-toggler-icon {
+      filter: invert(1);
+    }
+
+    .modern-navbar {
+      position: relative;
+      z-index: 1030;
+    }
+
+    .modern-navbar .dropdown-menu {
+      z-index: 1050;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                url('assets/faqs-background.jpg') no-repeat center center/cover;
+      min-height: 30vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      margin: 0;
+      transition: color 0.12s linear, transform 0.12s linear;
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+
+    .hero h1:hover {
+      color: var(--amber);
+      transform: scale(1.03);
+      cursor: pointer;
+    }
+
+    .lead {
+      margin-top: 6px;
+      opacity: 0.95;
+      font-size: clamp(0.9rem, 2vw, 1.25rem);
+    }
+
+    /* Accordion */
+    .accordion-button {
+      font-weight: 500;
+      border-radius: 8px !important;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      margin-bottom: 10px;
+      transition: color 0.12s linear, box-shadow 0.18s ease, transform 0.12s ease;
+    }
+    .accordion-button:hover {
+      color: var(--amber);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+    }
+    .accordion-body {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .section-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .section-buttons a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #FFBF00;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 8px;
+      padding: 10px 18px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .section-buttons a:hover {
+      background-color: #e6ac00;
+      color: #fff;
+    }
+
+    .section-buttons i {
+      font-size: 1.2rem;
+    }
+
+    /* Responsive Fixes */
+    @media (max-width: 576px) {
+      .navbar-brand span {
+        font-size: 1.2rem;
+      }
+      .hero {
+        min-height: 40vh;
+      }
+      .accordion-button {
+        font-size: 0.9rem;
+      }
+      footer {
+        font-size: 0.8rem;
+      }
+    }
+
+    .footer-modern {
+      background: #111;
+      color: white;
+    }
+
+    .footer-modern h5 {
+      color: white;
+    }
+
+    .footer-modern a {
+      color:white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-modern a:hover {
+      color: #ff9800;
+    }
+
+    .footer-modern ul {
+      padding: 0;
+    }
+
+    .footer-modern .list-inline-item {
+      margin: 0 8px;
+    }
+
+    .footer-modern img {
+      filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.4));
+    }
+
+    .footer-modern .social-icons a {
+      font-size: 1.5rem;
+      margin: 0 10px;
+      color: white;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .footer-modern .social-icons a:hover {
+      color: #ff9800;
+      transform: translateY(-3px);
+    }
+
+
+    @media (min-width: 1400px) {
+      .container {
+        max-width: 1320px;
+      }
+      .hero {
+        min-height: 40vh;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg modern-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="assets/taste-haven-logo.png" alt="Taste Haven Logo" width="50" height="40" class="img-fluid">
+        <span class="ms-2">Taste Haven</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#modernNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="modernNavbar">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="reservation.html">Reservations</a></li>
+          <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+          <li class="nav-item"><a class="nav-link" href="offers.html">Offers</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown">More</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="blog.html">Blog</a></li>
+              <li><a class="dropdown-item" href="#">FAQ's</a></li>
+              <li><a class="dropdown-item" href="privacy.html">Privacy</a></li>
+              <li><a class="dropdown-item" href="careers.html">Careers</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" data-aos="fade-down">
+    <div>
+      <h1>Frequently Asked Questions</h1>
+      <p class="lead">Quick answers to your common queries</p>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <div class="container py-5">
+    <div class="accordion" id="faqAccordion">
+
+      <div class="accordion-item" data-aos="fade-up">
+        <h2 class="accordion-header" id="q1">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#a1">
+            What are your opening hours?
+          </button>
+        </h2>
+        <div id="a1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            We are open daily from <strong>10 AM to 11 PM</strong>. On public holidays, timings may vary.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+        <h2 class="accordion-header" id="q2">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2">
+            Do you offer delivery?
+          </button>
+        </h2>
+        <div id="a2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes, we provide delivery through our trusted partners. You can place an order via our <a href="contact.html">Contact Page</a>.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+        <h2 class="accordion-header" id="q3">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3">
+            Do you host private events?
+          </button>
+        </h2>
+        <div id="a3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Absolutely! We offer private dining areas for parties, birthdays, and corporate events. Contact us for packages.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
+        <h2 class="accordion-header" id="q4">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a4">
+            Do you have vegetarian/vegan options?
+          </button>
+        </h2>
+        <div id="a4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes, our menu includes a wide range of vegetarian and vegan-friendly dishes made with fresh ingredients.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" data-aos="fade-up" data-aos-delay="400">
+        <h2 class="accordion-header" id="q5">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a5">
+            Is parking available at the restaurant?
+          </button>
+        </h2>
+        <div id="a5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes, we provide free parking space for our customers near the entrance.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" data-aos="fade-up" data-aos-delay="500">
+        <h2 class="accordion-header" id="q6">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a6">
+            How can I make a reservation?
+          </button>
+        </h2>
+        <div id="a6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Reservations can be made online via our <a href="reservation.html">Reservations Page</a> or by calling us directly.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+ <!-- Footer -->
+<footer class="footer-modern py-5">
+  <div class="container text-center">
+    <!-- Logo -->
+    <div class="mb-3">
+      <img src="assets/taste-haven-logo.png" alt="Taste Haven Logo" width="60" height="60" class="img-fluid mb-2">
+      <h5 class="fw-bold mt-2">Taste Haven</h5>
+    </div>
+
+    <!-- Links -->
+    <ul class="list-inline mb-3">
+      <li class="list-inline-item"><a href="index.html">Home</a></li>
+      <li class="list-inline-item"><a href="index.html#about">About</a></li>
+      <li class="list-inline-item"><a href="menu.html">Menu</a></li>
+      <li class="list-inline-item"><a href="gallery.html">Gallery</a></li>
+      <li class="list-inline-item"><a href="reservation.html">Reservations</a></li>
+      <li class="list-inline-item"><a href="reviews.html">Reviews</a></li>
+      <li class="list-inline-item"><a href="offers.html">Offers</a></li>
+      <li class="list-inline-item"><a href="blog.html">Blog</a></li>
+      <li class="list-inline-item"><a href="#">FAQ's</a></li>
+   <li class="list-inline-item"><a href="privacy.html">Privacy</a></li> 
+      <li class="list-inline-item"><a href="careers.html">Careers</a></li>
+      <li class="list-inline-item"><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <!-- Contact -->
+    <p class="mb-1">📍 North Nazimabad Karachi</p>
+    <p class="mb-1">📞 <a href="tel:+923272007787">+92 327 2007787</a></p>
+    <p class="mb-3">✉️ <a href="mailto:info@tastehaven.com">info@tastehaven.com</a></p>
+
+    <!-- Social Media -->
+    <div class="social-icons mb-3">
+      <a href="https://facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
+      <a href="https://wa.me/923272007787?text=Hello%20Taste%20Haven" target="_blank"><i class="bi bi-whatsapp"></i></a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="small copyright-text">&copy; 2025 Taste Haven Restaurant | All Rights Reserved</div>
+  </div>
+</footer>
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+  </script>
+</body>
+</html>

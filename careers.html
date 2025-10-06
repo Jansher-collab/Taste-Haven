@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Careers - Taste Haven</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fafafa;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    /* Modern Navbar */
+    .modern-navbar {
+      background: rgba(34, 34, 34, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 0.8rem 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      font-family: 'Segoe UI', sans-serif;
+      position: relative;
+      z-index: 1030;
+    }
+
+    .modern-navbar .navbar-brand span {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+
+    .modern-navbar .navbar-brand span:hover {
+      color: #FFBF00;
+    }
+
+    .modern-navbar .nav-link {
+      color: #fff;
+      font-weight: 500;
+      margin: 0 0.4rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .modern-navbar .nav-link::after {
+      content: '';
+      display: block;
+      width: 0%;
+      height: 2px;
+      background: #FFBF00;
+      transition: width 0.3s ease;
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+    }
+
+    .modern-navbar .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .modern-navbar .nav-link.active {
+      color: #FFBF00;
+    }
+
+    .modern-navbar .dropdown-menu {
+      border-radius: 10px;
+      border: none;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      z-index: 1050;
+    }
+
+    .modern-navbar .dropdown-item:hover {
+      background-color: #FFBF00 !important;
+      color: #fff !important;
+    }
+
+    .navbar-toggler {
+      border: none;
+    }
+
+    .navbar-toggler-icon {
+      filter: invert(1);
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #ffbf00 !important;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('assets/career-background.jpg') no-repeat center center/cover;
+      color: white;
+      min-height: 40vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 700;
+      padding: 15px 25px;
+      border-radius: 10px;
+      transition: transform 0.5s ease;
+      cursor: pointer;
+    }
+
+    .hero h1:hover {
+      color: #ff9800;
+      transform: scale(1.05);
+    }
+
+    /* Section Titles */
+    .section-title {
+      text-align: center;
+      font-weight: 700;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      margin-bottom: 30px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background-color: #ff9800;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    .section-title:hover {
+      color: #ff9800;
+    }
+
+    /* Content Section */
+    .content {
+      max-width: 900px;
+      margin: 50px auto;
+      text-align: center;
+      padding: 0 15px;
+    }
+
+    .content p {
+      font-size: 1.05rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    /* Buttons */
+    .btn-custom {
+      background: #ff9800;
+      border: none;
+      color: white;
+      border-radius: 30px;
+      padding: 12px 28px;
+      margin: 10px 5px;
+      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .btn-custom:hover {
+      background: #e68900;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .section-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .section-buttons a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #FFBF00;
+      color: white;
+      font-weight: 600;
+      border-radius: 8px;
+      padding: 10px 18px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .section-buttons a:hover {
+      background-color: #e6ac00;
+      color: #fff;
+    }
+
+    .section-buttons i {
+      font-size: 1.2rem;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 576px) {
+      .hero {
+        min-height: 30vh;
+        padding: 10px;
+      }
+
+      .content {
+        margin: 30px auto;
+      }
+
+      footer {
+        text-align: center;
+      }
+    }
+.footer-modern {
+  background: #111;
+  color: white;
+}
+
+.footer-modern h5 {
+  color: white;
+}
+
+.footer-modern a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-modern a:hover {
+  color: #ff9800;
+}
+
+.footer-modern ul {
+  padding: 0;
+}
+
+.footer-modern .list-inline-item {
+  margin: 0 8px;
+}
+
+.footer-modern img {
+  filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.4));
+}
+
+.footer-modern .social-icons a {
+  font-size: 1.5rem;
+  margin: 0 10px;
+  color: white;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-modern .social-icons a:hover {
+  color: #ff9800;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 576px) {
+  footer {
+    font-size: 0.8rem;
+  }
+}
+
+
+    @media (min-width: 1400px) {
+      .content p {
+        font-size: 1.15rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg modern-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="assets/taste-haven-logo.png" alt="Taste Haven Logo" width="50" height="40" class="img-fluid">
+        <span class="ms-2">Taste Haven</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#modernNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="modernNavbar">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="reservation.html">Reservations</a></li>
+          <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+          <li class="nav-item"><a class="nav-link" href="offers.html">Offers</a></li>
+          <li class="nav-item active dropdown">
+            <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown">More</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="blog.html">Blog</a></li>
+              <li><a class="dropdown-item" href="faqs.html">FAQ's</a></li>
+              <li><a class="dropdown-item" href="privacy.html">Privacy</a></li>
+              <li><a class="dropdown-item" href="#">Careers</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" data-aos="fade-up" data-aos-duration="1200">
+    <h1>Careers at Taste Haven</h1>
+  </section>
+
+  <!-- Careers Content Section -->
+  <section class="content" data-aos="fade-up" data-aos-duration="1200">
+    <h2 class="section-title">Work With Us</h2>
+    <p>
+      At Taste Haven, we’re always looking for passionate and talented people to join our team.
+      Whether you’re an experienced chef, a creative barista, or someone who loves serving guests with a smile —
+      we’d love to hear from you.
+    </p>
+    <p>
+      📧 Send your CV or inquiries to: <strong>careers@tastehaven.com</strong><br>
+      💬 Or reach us directly on WhatsApp: <a href="https://wa.me/923272007787" target="_blank">+92 327 2007787</a>
+    </p>
+    <a href="mailto:careers@tastehaven.com" class="btn-custom" data-aos="fade-right" data-aos-duration="1200">Apply via Email</a>
+    <a href="https://wa.me/923272007787" target="_blank" class="btn-custom" data-aos="fade-left" data-aos-duration="1200">Chat on WhatsApp</a>
+  </section>
+
+ <!-- Footer -->
+<footer class="footer-modern py-5">
+  <div class="container text-center">
+    <!-- Logo -->
+    <div class="mb-3">
+      <img src="assets/taste-haven-logo.png" alt="Taste Haven Logo" width="60" height="60" class="img-fluid mb-2">
+      <h5 class="fw-bold mt-2">Taste Haven</h5>
+    </div>
+
+    <!-- Links -->
+    <ul class="list-inline mb-3">
+      <li class="list-inline-item"><a href="index.html">Home</a></li>
+      <li class="list-inline-item"><a href="index.html#about">About</a></li>
+      <li class="list-inline-item"><a href="menu.html">Menu</a></li>
+      <li class="list-inline-item"><a href="gallery.html">Gallery</a></li>
+      <li class="list-inline-item"><a href="reservation.html">Reservations</a></li>
+      <li class="list-inline-item"><a href="reviews.html">Reviews</a></li>
+      <li class="list-inline-item"><a href="offers.html">Offers</a></li>
+      <li class="list-inline-item"><a href="blog.html">Blog</a></li>
+      <li class="list-inline-item"><a href="faqs.html">FAQ's</a></li>
+      <li class="list-inline-item"><a href="privacy.html">Privacy</a></li> 
+      <li class="list-inline-item"><a href="#">Careers</a></li>
+      <li class="list-inline-item"><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <!-- Contact -->
+    <p class="mb-1">📍 North Nazimabad Karachi</p>
+    <p class="mb-1">📞 <a href="tel:+923272007787">+92 327 2007787</a></p>
+    <p class="mb-3">✉️ <a href="mailto:info@tastehaven.com">info@tastehaven.com</a></p>
+
+    <!-- Social Media -->
+    <div class="social-icons mb-3">
+      <a href="https://facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
+      <a href="https://wa.me/923272007787?text=Hello%20Taste%20Haven" target="_blank"><i class="bi bi-whatsapp"></i></a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="small copyright-text">
+      &copy; 2025 Taste Haven Restaurant | All Rights Reserved
+    </div>
+  </div>
+</footer>
+
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      easing: 'ease-in-out',
+      duration: 1000
+    });
+  </script>
+</body>
+
+</html>
