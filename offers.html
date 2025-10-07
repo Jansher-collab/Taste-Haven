@@ -27,6 +27,44 @@
       color: #ffbf00;
       background: #f8f9fa;
     }
+    
+    /* === Instant Hide Dropdown Behavior === */
+.modern-navbar .dropdown-menu {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  pointer-events: none;
+}
+
+/* Show on click + hover */
+.modern-navbar .dropdown.show .dropdown-menu,
+.modern-navbar .dropdown:focus-within .dropdown-menu,
+.modern-navbar .dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Instantly hide when mouse leaves dropdown area */
+.modern-navbar .dropdown:not(:hover) .dropdown-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: none; /* immediate hide */
+}
+
+/* Prevent flicker when quickly moving cursor */
+.modern-navbar .dropdown-menu:hover {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
 
     /* Footer list item hover */
     footer ul li {
@@ -307,13 +345,13 @@
       </button>
       <div class="collapse navbar-collapse" id="modernNavbar">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link active" href="index.html#about">About</a></li>
+          <li class="nav-item"><a class="nav-link " href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link " href="index.html#about">About</a></li>
           <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
           <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
           <li class="nav-item"><a class="nav-link" href="reservation.html">Reservations</a></li>
           <li class="nav-item"><a class="nav-link " href="reviews.html">Reviews</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Offers</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">Offers</a></li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">More</a>
             <ul class="dropdown-menu dropdown-menu-end">

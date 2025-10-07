@@ -186,6 +186,43 @@
       background: #FFBF00;
       color: #fff !important;
     }
+    /* === Instant Hide Dropdown Behavior === */
+.modern-navbar .dropdown-menu {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  pointer-events: none;
+}
+
+/* Show on click + hover */
+.modern-navbar .dropdown.show .dropdown-menu,
+.modern-navbar .dropdown:focus-within .dropdown-menu,
+.modern-navbar .dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Instantly hide when mouse leaves dropdown area */
+.modern-navbar .dropdown:not(:hover) .dropdown-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: none; /* immediate hide */
+}
+
+/* Prevent flicker when quickly moving cursor */
+.modern-navbar .dropdown-menu:hover {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
 
     /* Hamburger icon tweaks */
     .navbar-toggler {
